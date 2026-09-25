@@ -1,5 +1,6 @@
 import WorkoutDetailCard from "@/components/details/WorkoutDetailCard";
 import { Workout } from "@/types/workout";
+import { notFound } from "next/navigation";
 
 
 const worksout = async () : Promise<Workout[]>=>{
@@ -13,6 +14,10 @@ export default async function WorkoutDetailpage({params}: {params: Promise<{id: 
   const {id} = await params; 
   const workout = await worksout();
   const workoutDetail = workout.find(workout => workout.id === Number (id));
+
+  if (!workoutDetail) {
+    notFound();
+  }
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <WorkoutDetailCard workout={workoutDetail} />
