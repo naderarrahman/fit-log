@@ -6,6 +6,8 @@ import { createContext, useContext, useMemo, useState } from "react";
 interface PlanContextType {
   planList: PlanItem[];
   savedList: Workout[];
+  setPlanList: React.Dispatch<React.SetStateAction<PlanItem[]>>;
+  setSavedList: React.Dispatch<React.SetStateAction<Workout[]>>;
 }
 
 const PlanContext = createContext<PlanContextType | undefined>(undefined);
@@ -18,7 +20,9 @@ export const PlanProvider =({children}:{children:React.ReactNode}) => {
     const valueObject = useMemo(() => ({
         planList,
         savedList,
-    }), [planList, savedList]);
+        setPlanList,
+        setSavedList
+    }), [planList, savedList, setPlanList, setSavedList]);
 
     return (
         <PlanContext.Provider value={valueObject}>

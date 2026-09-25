@@ -3,6 +3,7 @@ import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { PlanProvider } from "@/context/PlanContext";
 import Navbar from "@/components/layout/Navbar";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,6 +33,11 @@ export default function RootLayout({
         <PlanProvider>
           <Navbar/>
           <div className="flex-1">{children}</div>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={3000}
+            theme="dark"
+          />
         </PlanProvider>
       </body>
     </html>
