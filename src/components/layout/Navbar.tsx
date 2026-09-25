@@ -97,19 +97,25 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-end gap-3 sm:gap-4">
-          <div className="flex items-center gap-2 text-sm text-gray-300">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-2 text-sm text-gray-300 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <span>Plan</span>
             <span className="w-6 h-6 rounded-full bg-[#CCFF00] text-black font-bold text-xs flex items-center justify-center">
               {planList.length}
             </span>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-2 text-sm text-gray-300">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-2 text-sm text-gray-300 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <span>Saved</span>
             <span className="w-6 h-6 rounded-full bg-[#161922] border border-[#222733] text-gray-300 font-semibold text-xs flex items-center justify-center">
               {savedList.length}
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

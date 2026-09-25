@@ -20,7 +20,7 @@ export default function HeroBanner() {
 
         <div className="pt-2">
           <a
-            href="#workouts-section"
+            href="#library"
             className="inline-block bg-[#CCFF00] hover:bg-[#bce600] text-black font-bold font-[var(--font-oswald)] px-6 py-3 rounded-lg text-sm tracking-wider uppercase transition-all shadow-lg hover:shadow-[#CCFF00]/20"
           >
             BROWSE WORKOUTS
