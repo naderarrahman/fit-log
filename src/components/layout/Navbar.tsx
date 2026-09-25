@@ -45,7 +45,6 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[#0D0F12]/90 backdrop-blur-md border-b border-[#161922]">
       <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
-        {/* 1. Left: Logo & Mobile Dropdown */}
         <div className="navbar-start gap-2">
           <div className="dropdown">
             <div
