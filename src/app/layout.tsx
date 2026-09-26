@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 import { PlanProvider } from "@/context/PlanContext";
 import Navbar from "@/components/layout/Navbar";
 import { ToastContainer } from "react-toastify";
