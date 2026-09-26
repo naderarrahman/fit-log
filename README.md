@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💪 FITLOG - Fitness & Workout Tracking Application
 
-## Getting Started
+FitLog is a modern, responsive web application designed to help users browse workouts, manage daily training plans, and track saved exercises seamlessly. Built with performance and user experience in mind, it provides a clean interface for managing fitness goals.
 
-First, run the development server:
+🌐 **Live Website:** [Visit Website](https://fit-log-gamma-jet.vercel.app/)
 
-```bash
+---
+
+## 📸 Application Interface
+
+<p align="center">
+  <img src="./src/assets/image01.jpeg" width="48%" alt="Workout Library Preview" />
+  <img src="./src/assets/image02.jpeg" width="48%" alt="Workout Details View" />
+</p>
+
+<p align="center">
+  <img src="./src/assets/image03.jpeg" width="48%" alt="My Plan Management" />
+  <img src="./src/assets/image04.jpeg" width="48%" alt="Saved Workouts View" />
+</p>
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** React Context API
+- **Icons & UI Utilities:** Lucide React / DaisyUI
+- **Deployment:** Vercel
+
+---
+
+## ✨ Key Features
+
+### 1. Dynamic Daily Workout Planning
+
+Users can build and view their customized daily workout routine with real-time tracking for total exercises, workout duration, and calories burned.
+
+### 2. Saved Exercises & Navigation Sync
+
+Seamless interaction between saved exercises and daily workout plans, with dynamic badge indicators in the header navigation.
+
+### 3. Smart Sorting & Filtering
+
+Users can sort workout routines based on:
+
+- Duration
+- Total calories
+- User ratings
+
+This makes it easier to find suitable workouts for different training sessions.
+
+### 4. Interactive Workout Details
+
+Each workout has a dedicated details page displaying:
+
+- Exercise information
+- Target statistics
+- Workout duration
+- Calories burned
+- User ratings
+- Dynamic navigation
+- Save and plan state toggles
+
+### 5. Optimized UX & Build-Safe Routing
+
+The application includes:
+
+- Client-side suspense boundaries
+- Loading states
+- Custom 404 pages
+- Dynamic route handling
+- Responsive layouts
+- Mobile and desktop support
+
+---
+
+## 📁 Project Structure
+
+fit-log/
+├── src/
+│   ├── app/
+│   │   ├── my-plan/
+│   │   ├── workout/
+│   │   │   └── [id]/
+│   │   │       ├── not-found.tsx
+│   │   │       └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── not-found.tsx
+│   │   └── page.tsx
+│   │
+│   ├── assets/
+│   │   ├── banner.png
+│   │   ├── image01.jpeg
+│   │   ├── image02.jpeg
+│   │   ├── image03.jpeg
+│   │   ├── image04.jpeg
+│   │   ├── image05.jpeg
+│   │   └── logo.png
+│   │
+│   ├── components/
+│   │   ├── details/
+│   │   │   └── WorkoutCardDetail.tsx
+│   │   ├── home/
+│   │   │   ├── HeroBanner.tsx
+│   │   │   ├── WorkoutCard.tsx
+│   │   │   └── WorkoutLibrary.tsx
+│   │   ├── layout/
+│   │   │   ├── Footer.tsx
+│   │   │   └── Navbar.tsx
+│   │   └── my-plan/
+│   │       ├── PlanWorkoutCard.tsx
+│   │       └── SavedWorkoutCard.tsx
+│   │
+│   ├── context/
+│   │   └── PlanContext.tsx
+│   │
+│   └── types/
+│       └── workout.ts
+│
+├── .gitignore
+└── AGENTS.md
+
+---
+
+## 🚀 Getting Started Locally
+
+Follow these steps to run FitLog on your local machine.
+
+### 1. Clone the Repository
+
+git clone https://github.com/naderarrahman/fit-log.git
+cd fit-log
+
+### 2. Install Dependencies
+
+npm install
+
+### 3. Run the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Open in Browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Live Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🌐 **Live Website:** [Visit Website](https://fit-log-gamma-jet.vercel.app/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔗 **GitHub Repository:** [View Repository](https://github.com/naderarrahman/fit-log)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👨‍💻 Connect With Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **GitHub:** [Nader Ar Rahman](https://github.com/naderarrahman)
+- **LinkedIn:** [Nader Ar Rahman](https://linkedin.com/in/naderarrahman/)
+- **Facebook:** [Nader Ar Rahman](https://www.facebook.com/naderarrahman)
+
+---
+
+## 📄 License
+
+This project was developed for learning, practice, and portfolio purposes.
