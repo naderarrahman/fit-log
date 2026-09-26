@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import PlanWorkoutCard from "@/components/my-plan/PlanWorkoutCard";
 import SavedWorkoutCard from "@/components/my-plan/SavedWorkoutCard";
@@ -7,15 +7,18 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function MyPlanPage() {
-  const { planList, savedList} = usePlan();
-  const [activeTab, setActiveTab] = useState <"plan" | "saved">("plan");
-  const [sortBy , setSortBy ] = useState<"duration" |"calories">("duration");
+  const { planList, savedList } = usePlan();
+  const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
+  const [sortBy, setSortBy] = useState<"duration" | "calories">("duration");
 
+  const activeList = activeTab === "plan" ? planList : savedList;
 
-  const totalExercises = planList.length;
-  const totalMinutes = planList.reduce((acc, curr) => acc + curr.duration, 0);
-  const totalCalories = planList.reduce( (acc, curr) => acc + curr.caloriesBurned, 0);
-
+  const totalExercises = activeList.length;
+  const totalMinutes = activeList.reduce((acc, curr) => acc + curr.duration, 0);
+  const totalCalories = activeList.reduce(
+    (acc, curr) => acc + curr.caloriesBurned,
+    0,
+  );
 
   const currentList = activeTab === "plan" ? [...planList] : [...savedList];
   const sortedList = currentList.sort((a, b) => {
@@ -100,16 +103,10 @@ export default function MyPlanPage() {
         <div className="space-y-4">
           {sortedList.map((workout) =>
             activeTab === "plan" ? (
-              <PlanWorkoutCard
-                key={workout.id}
-                workout={workout}
-              />
+              <PlanWorkoutCard key={workout.id} workout={workout} />
             ) : (
-              <SavedWorkoutCard
-                key={workout.id}
-                workout={workout}
-              />
-            )
+              <SavedWorkoutCard key={workout.id} workout={workout} />
+            ),
           )}
         </div>
       ) : (
