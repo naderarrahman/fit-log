@@ -4,6 +4,7 @@ import "./globals.css";
 import { PlanProvider } from "@/context/PlanContext";
 import Navbar from "@/components/layout/Navbar";
 import { ToastContainer } from "react-toastify";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <PlanProvider>
           <Navbar/>
           <div className="flex-1">{children}</div>
+          <Footer/>
           <ToastContainer
             position="bottom-right"
             autoClose={3000}
