@@ -4,12 +4,19 @@ import PlanWorkoutCard from "@/components/my-plan/PlanWorkoutCard";
 import SavedWorkoutCard from "@/components/my-plan/SavedWorkoutCard";
 import { usePlan } from "@/context/PlanContext";
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useState, Suspense } from "react"; 
 
-export default function MyPlanPage() {
+function MyPlanContent() {
   const { planList, savedList } = usePlan();
-  const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
+
+  const searchParams = useSearchParams();
+  const tabFromUrl = searchParams.get("tab");
+
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("duration");
+
+  const [userTab, setUserTab] = useState<"plan" | "saved" | null>(null);
+  const activeTab = userTab ?? (tabFromUrl === "saved" ? "saved" : "plan");
 
   const activeList = activeTab === "plan" ? planList : savedList;
 
@@ -66,7 +73,7 @@ export default function MyPlanPage() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="bg-[#12151C] border border-[#222733] p-1 rounded-full flex items-center gap-1">
           <button
-            onClick={() => setActiveTab("plan")}
+            onClick={() => setUserTab("plan")}
             className={`px-5 py-2 rounded-full text-xs font-bold transition ${
               activeTab === "plan"
                 ? "bg-[#161A23] text-white border border-[#222733]"
@@ -76,7 +83,7 @@ export default function MyPlanPage() {
             {`Today's`} Plan
           </button>
           <button
-            onClick={() => setActiveTab("saved")}
+            onClick={() => setUserTab("saved")}
             className={`px-5 py-2 rounded-full text-xs font-bold transition ${
               activeTab === "saved"
                 ? "bg-[#161A23] text-white border border-[#222733]"
@@ -92,7 +99,7 @@ export default function MyPlanPage() {
           <select
             value={sortBy}
             onChange={(e) =>
-              setSortBy(e.target.value as "duration" | "calories" | "rating" )
+              setSortBy(e.target.value as "duration" | "calories" | "rating")
             }
             className="bg-[#12151C] border border-[#222733] text-white text-xs font-bold px-3 py-2 rounded-xl outline-none focus:border-[#CCFF00] transition"
           >
@@ -132,5 +139,13 @@ export default function MyPlanPage() {
         </div>
       )}
     </main>
+  );
+}
+
+export default function MyPlanPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-20 text-gray-400">Loading...</div>}>
+      <MyPlanContent />
+    </Suspense>
   );
 }
