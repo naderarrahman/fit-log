@@ -134,22 +134,26 @@ Follow these steps to run FitLog on your local machine.
 
 ### 1. Clone the Repository
 
+```bash
 git clone https://github.com/naderarrahman/fit-log.git
 cd fit-log
+```
 
 ### 2. Install Dependencies
 
+```bash
 npm install
+```
 
 ### 3. Run the Development Server
 
+```bash
 npm run dev
+```
 
 ### 4. Open in Browser
 
-Navigate to:
-
-http://localhost:3000
+Navigate to: [http://localhost:3000](http://localhost:3000)
 
 ---
 
