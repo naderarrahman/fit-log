@@ -78,6 +78,7 @@ The application includes:
 
 ## 📁 Project Structure
 
+```text
 fit-log/
 ├── src/
 │   ├── app/
@@ -123,6 +124,7 @@ fit-log/
 │
 ├── .gitignore
 └── AGENTS.md
+```
 
 ---
 
