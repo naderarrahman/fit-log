@@ -5,10 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { usePlan } from "@/context/PlanContext";
 import logo from "@/assets/logo.png";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { planList, savedList } = usePlan();
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    queueMicrotask(() => setMounted(true));
+  }, []);
+
 
   const isWorkoutsActive = pathname === "/" || pathname.startsWith("/workout");
   const isMyPlanActive = pathname === "/my-plan";
@@ -103,7 +110,7 @@ export default function Navbar() {
           >
             <span>Plan</span>
             <span className="w-6 h-6 rounded-full bg-[#CCFF00] text-black font-bold text-xs flex items-center justify-center">
-              {planList.length}
+            {mounted ? planList.length : 0}
             </span>
           </Link>
 
@@ -112,9 +119,9 @@ export default function Navbar() {
             className="flex items-center gap-2 text-sm text-gray-300 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <span>Saved</span>
-            <span className="w-6 h-6 rounded-full bg-[#161922] border border-[#222733] text-gray-300 font-semibold text-xs flex items-center justify-center">
-              {savedList.length}
-            </span>
+          <span className="w-6 h-6 rounded-full bg-[#161922] border border-[#222733] text-gray-300 font-semibold text-xs flex items-center justify-center">
+          {mounted ? savedList.length : 0}
+          </span>
           </Link>
         </div>
       </div>
