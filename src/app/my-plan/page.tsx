@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function MyPlanPage() {
   const { planList, savedList } = usePlan();
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
-  const [sortBy, setSortBy] = useState<"duration" | "calories">("duration");
+  const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("duration");
 
   const activeList = activeTab === "plan" ? planList : savedList;
 
@@ -21,9 +21,12 @@ export default function MyPlanPage() {
   );
 
   const currentList = activeTab === "plan" ? [...planList] : [...savedList];
+
   const sortedList = currentList.sort((a, b) => {
     if (sortBy === "duration") return b.duration - a.duration;
-    return b.caloriesBurned - a.caloriesBurned;
+    if (sortBy === "calories") return b.caloriesBurned - a.caloriesBurned;
+    if (sortBy === "rating") return b.rating - a.rating;
+    return 0;
   });
 
   return (
@@ -89,12 +92,13 @@ export default function MyPlanPage() {
           <select
             value={sortBy}
             onChange={(e) =>
-              setSortBy(e.target.value as "duration" | "calories")
+              setSortBy(e.target.value as "duration" | "calories" | "rating" )
             }
             className="bg-[#12151C] border border-[#222733] text-white text-xs font-bold px-3 py-2 rounded-xl outline-none focus:border-[#CCFF00] transition"
           >
             <option value="duration">Duration</option>
             <option value="calories">Calories</option>
+            <option value="rating">Rating</option>
           </select>
         </div>
       </div>
